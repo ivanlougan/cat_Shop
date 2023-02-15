@@ -1,12 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-    
-    </div>
-  );
+
+
+const App = () => {
+  const [Cat, SetCat] = useState([]);
+  const fetchCat = async () => {
+    const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=10')
+  }    
 }
 
 export default App;
