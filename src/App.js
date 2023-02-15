@@ -1,12 +1,51 @@
+import './App.css'; 
+import {useEffect, useState} from 'react'; 
+import { faker } from '@faker-js/faker';  
 
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
+const App = () => {   
+  const [CatPics, SetCatPics] = useState([]);   
+  const [ErrorMsg, SetErrorMsg] = useState(null);    
+  
+  useEffect(() => {   
+    const fetchCat = async () => {     
+      try {     
+        const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=10%27');     
+        if (!response.ok){       
+          throw new Error(response.statusText)     
+        }     
+        const CatPicData = await response.json();     
+        SetCatPics(CatPicData)   } catch (err) {     
+          SetErrorMsg("Oops, a cat has knocked the router off the shelf. Please try again")   }   };    
+          fetchCat()  }, []); 
+
+          return (     
+          <>     
+           <h1>Cats for Life Page header</h1>    
+           {ErrorMsg !== null && <h3>{ErrorMsg}</h3>}     
+           {CatPics.map((CatPicData, index) => {       
+            return (       
+            <div className='AllCats'>         
+            <img className='indivCats' key={index} src={CatPicData.url} alt="cat"></img>          
+            <p >Cat name will go here?</p>       
+            </div>  
+           )
+          })}
+          <div className='Basket'>
+            <h1>The Basket will go here?</h1>
+          </div>
+          </>  
+       )
+  }   
+
+  const NewCat = () => {
+    return {
+      Name: faker.name.firstName(),
+      Breed: faker.animal.cat(),
+      Phone: faker.phone.phoneNumber('')  
+  
     
-    </div>
-  );
-}
-
-export default App;
+    }
+  }
+  
+  export default App;
