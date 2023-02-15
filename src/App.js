@@ -16,7 +16,7 @@ const App = () => {
   useEffect(() => {   
     const fetchCat = async () => {     
       try {     
-        const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=10%27');     
+        const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=10');     
         if (!response.ok){       
           throw new Error(response.statusText)     
         }     
