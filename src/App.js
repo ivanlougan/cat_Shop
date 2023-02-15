@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { faker } from '@faker-js/faker';  
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Basket from "./pages/Basket";
@@ -8,9 +9,28 @@ import './App.css';
 import basketIcon from "./images/basket.png"
 import catLogo from "./images/CATLOGO.png"
 
-function App() {
+const App = () => {   
+  const [CatPics, SetCatPics] = useState([]);   
+  const [ErrorMsg, SetErrorMsg] = useState(null);    
+  
+  useEffect(() => {   
+    const fetchCat = async () => {     
+      try {     
+        const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=10%27');     
+        if (!response.ok){       
+          throw new Error(response.statusText)     
+        }     
+        const CatPicData = await response.json();     
+        SetCatPics(CatPicData)   
+      } catch (err) {     
+        SetErrorMsg("Oops, a cat has knocked the router off the shelf. Please try again")   
+      }   
+    };    
+    fetchCat()  
+  }, []); 
+
+
   return (
-    <div className="App">
     
       <BrowserRouter>
 
@@ -31,11 +51,10 @@ function App() {
 
         </BrowserRouter>
 
-    </div>
-  );
-}
-
-export default App;
+    )
+  }
+  
+  export default App;
 
 // STYLED COMPONENTS
 
