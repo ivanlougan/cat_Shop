@@ -1,7 +1,13 @@
-import './App.css'; 
-import {useEffect, useState} from 'react'; 
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { faker } from '@faker-js/faker';  
-
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Basket from "./pages/Basket";
+import './App.css';
+// IMAGES
+import basketIcon from "./images/basket.png"
+import catLogo from "./images/CATLOGO.png"
 
 const App = () => {   
   const [CatPics, SetCatPics] = useState([]);   
@@ -15,37 +21,43 @@ const App = () => {
           throw new Error(response.statusText)     
         }     
         const CatPicData = await response.json();     
-        SetCatPics(CatPicData)   } catch (err) {     
-          SetErrorMsg("Oops, a cat has knocked the router off the shelf. Please try again")   }   };    
-          fetchCat()  }, []); 
+        SetCatPics(CatPicData)   
+      } catch (err) {     
+        SetErrorMsg("Oops, a cat has knocked the router off the shelf. Please try again")   
+      }   
+    };    
+    fetchCat()  
+  }, []); 
 
-          return (     
-          <>     
-           <h1>Cats for Life Page header</h1>    
-           {ErrorMsg !== null && <h3>{ErrorMsg}</h3>}     
-           {CatPics.map((CatPicData, index) => {       
-            return (       
-            <div className='AllCats'>         
-            <img className='indivCats' key={index} src={CatPicData.url} alt="cat"></img>          
-            <p >Cat name will go here?</p>       
-            </div>  
-           )
-          })}
-          <div className='Basket'>
-            <h1>The Basket will go here?</h1>
-          </div>
-          </>  
-       )
-  }   
 
-  const NewCat = () => {
-    return {
-      Name: faker.name.firstName(),
-      Breed: faker.animal.cat(),
-      Phone: faker.phone.phoneNumber('')  
-  
+  return (
     
-    }
+      <BrowserRouter>
+
+        <nav id="navbar">
+          <img id="catlogo" src={catLogo} alt="catlogo"></img>
+          <Link to="/" > Home </Link>
+          <Link to="/about" > About </Link>
+          <Link to="/basket" > Basket </Link>
+        </nav>
+
+        <Routes>
+
+          <Route path="/" element={ <Home CatPics={CatPics} ErrorMsg={ErrorMsg}/>}></Route>
+          <Route path="/about/"></Route>
+          <Route path="/basket/"></Route>
+
+        </Routes>
+
+        </BrowserRouter>
+
+    )
   }
   
   export default App;
+
+// STYLED COMPONENTS
+
+// const NavBar = styled.nav `
+
+// `;
