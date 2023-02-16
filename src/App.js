@@ -29,7 +29,8 @@ const App = () => {
             catImg: NewCatObject.url,
             name: faker.name.firstName(),
             breed: faker.animal.cat(),
-            phone: faker.phone.number()
+            phone: faker.phone.number(),
+            price: faker.commerce.price()
             // Add price here?
           })
 
