@@ -6,7 +6,6 @@ import About from "./pages/About";
 import Basket from "./pages/Basket";
 import './App.css';
 // IMAGES
-import basketIcon from "./images/basket.png"
 import catLogo from "./images/CATLOGO.png"
 
 const App = () => {   
@@ -16,7 +15,7 @@ const App = () => {
   useEffect(() => {   
     const fetchCat = async () => {     
       try {     
-        const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=10%27');     
+        const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=10');     
         if (!response.ok){       
           throw new Error(response.statusText)     
         }     
@@ -28,7 +27,6 @@ const App = () => {
     };    
     fetchCat()  
   }, []); 
-
 
   return (
     
