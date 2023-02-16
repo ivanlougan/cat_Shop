@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker';
 
+
 const Home = ({CatPics, ErrorMsg}) => {
 return (     
     <div>     
@@ -9,7 +10,7 @@ return (
       return (       
       <div key={index} className='AllCats'>         
       <img className='indivCats' src={CatPicData.url} alt="cat"></img>          
-      <p >CAT INFO HERE</p>       
+      <p > {faker.name.firstName()}</p>       
       </div>  
      )
     })}
