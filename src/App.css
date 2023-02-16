@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-.indivCats{
-width: 100px;
-height: 100px;
-}
-=======
 /* NAVIGATION BAR */
 #navbar {
     display: flex;
@@ -39,4 +33,9 @@ a:hover {
     width: 180px;
     
 }
->>>>>>> 697284caa112d8c5707bc9471d52b2b528f3fab2
+
+.indivCats {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
