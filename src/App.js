@@ -1,6 +1,6 @@
-
 import './App.css';
 import {useEffect, useState} from 'react';
+import { faker } from '@faker-js/faker';
 
 const App = () => {
   const [CatPics, SetCatPics] = useState([]);
@@ -20,11 +20,22 @@ const App = () => {
   }
   };
 
-  fetchCat()
-
+  fetchCat();
 }, []);
+  // const [CatData, SetCatData] = useState([])
+  // const  NewCat = () => {
+  // return {
+  //   Name: faker.name.firstName(),
+  //   Breed: faker.animal.cat() 
+  //   }
+  // }
+  // SetCatData(NewCat)
+  
+;
 
-  return (
+
+
+return (
     <>
     <h1>Cats for Life Page header</h1>
     {ErrorMsg !== null && <h3>{ErrorMsg}</h3>}
@@ -32,7 +43,8 @@ const App = () => {
       return (
       <div className='AllCats'>
         <img className='indivCats' key={index} src={CatPicData.url} alt="cat"></img> 
-        <p >Cat name will go here?</p>
+        <p>Name: Moggy</p>
+        <button> Add to basket</button>
       </div>
       )
       })}
@@ -42,5 +54,7 @@ const App = () => {
     </>
   )  
 }
+
+
 
 export default App;
