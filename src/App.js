@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Basket from "./pages/Basket";
 import './App.css';
+
+
 // IMAGES
 import catLogo from "./images/CATLOGO.png"
 
@@ -12,6 +14,7 @@ const App = () => {
   // CatPics state now holds both images from API & faker info
   const [CatPics, SetCatPics] = useState([]);   
   const [ErrorMsg, SetErrorMsg] = useState(null);
+  const [ModalOpen, setModalOpen] = useState(false);
   
   useEffect(() => {   
     const fetchCat = async () => {     
@@ -28,9 +31,14 @@ const App = () => {
 
             catImg: NewCatObject.url,
             name: faker.name.firstName(),
+            humanName: faker.name.fullName(),
             breed: faker.animal.cat(),
-            phone: faker.phone.number()
-            // Add price here?
+            phone: faker.phone.number("077-####-####"),
+            price: faker.commerce.price(99,1000,2,'£'),
+            email: faker.internet.email(),
+            Address1: faker.address.streetAddress(),
+            Address2: faker.address.city(),
+            Address3: faker.address.country()
           })
 
         })
@@ -40,8 +48,8 @@ const App = () => {
       }   
     };    
     fetchCat()  
-  }, []); 
-
+  }, []);  
+ 
   return (
     
       <BrowserRouter>

@@ -1,4 +1,4 @@
-
+import AboutModals from "../AboutModals"
 const Home = ({CatPics, ErrorMsg}) => {
 return (     
     <>
@@ -8,7 +8,9 @@ return (
       return (       
       <div key={index} className='AllCats'>         
         <img className='indivCats' src={CatPicData.catImg} alt="cat"></img>          
-        <p>{CatPicData.name}</p>       
+        <p>{CatPicData.name}</p>
+        <p>{CatPicData.price}</p>
+        <AboutModals Info = {CatPicData}></AboutModals>       
       </div>  
      )
     })}

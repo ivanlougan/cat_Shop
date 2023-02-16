@@ -45,3 +45,7 @@ a:hover {
     gap: 1rem;
     grid-template-columns: repeat(3 minmax(300px));
 }
+
+#OpenMod {
+    width:fit-content
+}
