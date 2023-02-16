@@ -1,60 +1,63 @@
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { faker } from '@faker-js/faker';  
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Basket from "./pages/Basket";
 import './App.css';
-import {useEffect, useState} from 'react';
-import { faker } from '@faker-js/faker';
+// IMAGES
+import basketIcon from "./images/basket.png"
+import catLogo from "./images/CATLOGO.png"
 
-const App = () => {
-  const [CatPics, SetCatPics] = useState([]);
-  const [ErrorMsg, SetErrorMsg] = useState(null);
-
-  useEffect(() => {
-  const fetchCat = async () => {
-    try {
-    const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=10');
-    if (!response.ok){
-      throw new Error(response.statusText)
-    }
-    const CatPicData = await response.json();
-    SetCatPics(CatPicData)
-  } catch (err) {
-    SetErrorMsg("Oops, a cat has knocked the router off the shelf. Please try again")
-  }
-  };
-
-  fetchCat();
-}, []);
-  // const [CatData, SetCatData] = useState([])
-  // const  NewCat = () => {
-  // return {
-  //   Name: faker.name.firstName(),
-  //   Breed: faker.animal.cat() 
-  //   }
-  // }
-  // SetCatData(NewCat)
+const App = () => {   
+  const [CatPics, SetCatPics] = useState([]);   
+  const [ErrorMsg, SetErrorMsg] = useState(null);    
   
-;
+  useEffect(() => {   
+    const fetchCat = async () => {     
+      try {     
+        const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=10%27');     
+        if (!response.ok){       
+          throw new Error(response.statusText)     
+        }     
+        const CatPicData = await response.json();     
+        SetCatPics(CatPicData)   
+      } catch (err) {     
+        SetErrorMsg("Oops, a cat has knocked the router off the shelf. Please try again")   
+      }   
+    };    
+    fetchCat()  
+  }, []); 
 
 
+  return (
+    
+      <BrowserRouter>
 
-return (
-    <>
-    <h1>Cats for Life Page header</h1>
-    {ErrorMsg !== null && <h3>{ErrorMsg}</h3>}
-    {CatPics.map((CatPicData, index) =>{
-      return (
-      <div className='AllCats'>
-        <img className='indivCats' key={index} src={CatPicData.url} alt="cat"></img> 
-        <p>Name: Moggy</p>
-        <button> Add to basket</button>
-      </div>
-      )
-      })}
-      <div className='Basket'>
-        <h1>The Basket will go here?</h1>
-      </div>
-    </>
-  )  
-}
+        <nav id="navbar">
+          <img id="catlogo" src={catLogo} alt="catlogo"></img>
+          <Link to="/" > Home </Link>
+          <Link to="/about" > About </Link>
+          <Link to="/basket" > Basket </Link>
+        </nav>
 
+        <Routes>
 
+          <Route path="/" element={ <Home CatPics={CatPics} ErrorMsg={ErrorMsg}/>}></Route>
+          <Route path="/about/"></Route>
+          <Route path="/basket/"></Route>
 
-export default App;
+        </Routes>
+
+        </BrowserRouter>
+
+    )
+  }
+  
+  export default App;
+
+// STYLED COMPONENTS
+
+// const NavBar = styled.nav `
+
+// `;

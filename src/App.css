@@ -1,4 +1,42 @@
+<<<<<<< HEAD
 .indivCats{
 width: 100px;
 height: 100px;
 }
+=======
+/* NAVIGATION BAR */
+#navbar {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items:center;
+    font-size: 20px;
+    font-weight:bolder;
+    padding: 15px;
+    padding-right: 100px;
+    text-align: end;
+    background-color: rgb(138, 169, 226);
+
+    border: 0;
+    border-bottom: 5px;
+    border-style: solid;
+    border-color: rgb(31, 31, 31);
+    
+}
+
+/* NAVBAR LINKS */
+a {
+    color: rgb(31, 31, 31);
+}
+
+a:hover {
+    cursor: pointer;
+    color: aliceblue;
+}
+
+/* CAT LOGO IMG */
+#catlogo {
+    width: 180px;
+    
+}
+>>>>>>> 697284caa112d8c5707bc9471d52b2b528f3fab2
