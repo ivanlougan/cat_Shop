@@ -9,18 +9,32 @@ import './App.css';
 import catLogo from "./images/CATLOGO.png"
 
 const App = () => {   
+  // CatPics state now holds both images from API & faker info
   const [CatPics, SetCatPics] = useState([]);   
-  const [ErrorMsg, SetErrorMsg] = useState(null);    
+  const [ErrorMsg, SetErrorMsg] = useState(null);
   
   useEffect(() => {   
     const fetchCat = async () => {     
       try {     
         const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=10');     
-        if (!response.ok){       
+
+        if (!response.ok){ 
           throw new Error(response.statusText)     
         }     
-        const CatPicData = await response.json();     
-        SetCatPics(CatPicData)   
+        const CatPicData = await response.json();
+        // New array for faker info
+        const catInfoData = CatPicData.map((NewCatObject) => {
+          return({
+
+            catImg: NewCatObject.url,
+            name: faker.name.firstName(),
+            breed: faker.animal.cat(),
+            phone: faker.phone.number()
+            // Add price here?
+          })
+
+        })
+        SetCatPics(catInfoData)
       } catch (err) {     
         SetErrorMsg("Oops, a cat has knocked the router off the shelf. Please try again")   
       }   
@@ -53,9 +67,3 @@ const App = () => {
   }
   
   export default App;
-
-// STYLED COMPONENTS
-
-// const NavBar = styled.nav `
-
-// `;
