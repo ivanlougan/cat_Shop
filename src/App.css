@@ -1,7 +1,7 @@
 /* NAVIGATION BAR */
 #navbar {
     display: flex;
-    flex-flow: row;
+    flex-flow: row wrap;
     justify-content: space-between;
     align-items:center;
     font-size: 20px;
@@ -10,6 +10,7 @@
     text-align: end;
     background-color: rgb(138, 169, 226);
 
+    max-width: 100%;
     border: 0;
     border-bottom: 3px;
     border-style: solid;
@@ -47,6 +48,7 @@ a:hover {
 
 .HomePageWrapper {
     text-align: center;
+    flex-wrap: wrap;
 }
 
 /* CAT CARDS */
