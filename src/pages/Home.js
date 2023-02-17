@@ -18,7 +18,11 @@ return (
         <h1>The Basket will go here?</h1>
       </div>
     </>  
+
  )
 }
 
 export default Home
+
+// Basket Counter will use State to update?
+// Cat Card will be onclick event?
