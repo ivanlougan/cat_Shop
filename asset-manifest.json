@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/ivanlougan/cat_Shop/static/css/main.fcdb913d.css",
-    "main.js": "/ivanlougan/cat_Shop/static/js/main.4fe68e6a.js",
+    "main.js": "/ivanlougan/cat_Shop/static/js/main.2cfb2289.js",
     "static/media/CATLOGO.png": "/ivanlougan/cat_Shop/static/media/CATLOGO.e3975b9f6a1e28b3b166.png",
     "index.html": "/ivanlougan/cat_Shop/index.html",
     "main.fcdb913d.css.map": "/ivanlougan/cat_Shop/static/css/main.fcdb913d.css.map",
-    "main.4fe68e6a.js.map": "/ivanlougan/cat_Shop/static/js/main.4fe68e6a.js.map"
+    "main.2cfb2289.js.map": "/ivanlougan/cat_Shop/static/js/main.2cfb2289.js.map"
   },
   "entrypoints": [
     "static/css/main.fcdb913d.css",
-    "static/js/main.4fe68e6a.js"
+    "static/js/main.2cfb2289.js"
   ]
 }
