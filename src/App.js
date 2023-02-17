@@ -34,7 +34,7 @@ const App = () => {
             humanName: faker.name.fullName(),
             breed: faker.animal.cat(),
             phone: faker.phone.number("077-####-####"),
-            price: faker.commerce.price(99,1000,2,'£'),
+            price: faker.commerce.price(99,1000,2),
             email: faker.internet.email(),
             Address1: faker.address.streetAddress(),
             Address2: faker.address.city(),
