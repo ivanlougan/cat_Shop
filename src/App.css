@@ -100,16 +100,6 @@ a:hover {
 
 }
 
-.aboutPage {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    margin: 100px;
-    padding: 100px;
-}
-
-
 /* BUTTONS */
 button {
     margin: 5px;
@@ -118,4 +108,13 @@ button {
     border-style: solid;
     border-color: rgb(155, 177, 202);
     border-radius: 5px;
+}
+
+.aboutPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 100px;
+    padding: 100px;
 }
