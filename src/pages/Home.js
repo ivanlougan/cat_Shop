@@ -1,10 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AboutModals from "../functions/AboutModals";
 
-const Home = ({CatPics, ErrorMsg, CatList}) => {
-  
+
+const Home = ({CatPics, ErrorMsg, CatList, BaskTotal}) => {
   const [Basket, setBasket] = useState([]);
+  const [BasketTotal, SetBasketTotal] = useState();
+
+  useEffect(() => {
+      const total = () => {
+      let TotalVal = 0; 
+      for (let i = 0; i < Basket.length; i++) {
+        console.log(typeof Basket[i].price)
+        TotalVal += parseInt(Basket[i].price)
+      }
+      SetBasketTotal(TotalVal);
+    };  
+      total();
+      }, [Basket]);
   
+
+
   const handleAddCat = (index) =>{
     let storedCatPics = [...CatPics];
     let BasketCopy = [...Basket];
@@ -22,6 +37,7 @@ const Home = ({CatPics, ErrorMsg, CatList}) => {
     console.log(BasketCopy, storedCatPics)
 }
 
+
   return (
   <div className="HomePageWrapper">
       <h1>Purrruse these fine felines</h1>
@@ -35,7 +51,7 @@ const Home = ({CatPics, ErrorMsg, CatList}) => {
             <img className='indivCats' src={CatPicData.catImg} alt="cat"></img>
             <h4>{CatPicData.name}</h4>
             <p><b>Breed: </b>{CatPicData.breed}</p>
-            <p>{CatPicData.price}</p>
+            <p>£{CatPicData.price}</p>
             <AboutModals Info = {CatPicData}></AboutModals>
             <button onClick = {()=>handleAddCat(index)}>Add to Cat Basket</button>
           </div>
@@ -48,17 +64,21 @@ const Home = ({CatPics, ErrorMsg, CatList}) => {
         <h3>Total: {} </h3>
         {Basket.map((CatPicData, index) =>{
           return (
-            <div key={index} className='CatCard'> 
+            <div key={index} className='CatCard'>
             <img className='indivCats' src={CatPicData.catImg} alt="cat"></img>
             <h4>{CatPicData.name}</h4>
             <p><b>Breed: </b>{CatPicData.breed}</p>
-            <p>{CatPicData.price}</p>
+            <p>£{CatPicData.price}</p>
             <AboutModals Info = {CatPicData}></AboutModals>
             <button onClick={()=>handleRemoveCat(index)}>Remove from basket</button>
             </div>
           )
+          
         })}
       </div>
+      {/* Basket total section */}
+      <h3>Total Cost: £{BasketTotal}</h3>
+      <button>Proceed to Checkout</button>
     </div>
    </div>
    )
