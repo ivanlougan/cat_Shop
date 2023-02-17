@@ -38,9 +38,12 @@ a:hover {
 
 /* =====HOME PAGE STYLING===== */
 .CatCardDisplay {
+    /* display: flex;
+    flex-wrap: wrap; */
+    width: calc(100vw - 450px);
     display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    grid-template-columns: repeat(5, 20%);
 
 }
 
@@ -50,12 +53,13 @@ a:hover {
 
 /* CAT CARDS */
 .CatCard {
-    width: calc(100% - fit-content);
+    box-sizing: border-box;
+    width: calc(100%);
     height: calc(100% - fit-content);
     padding: 20px;
     
     transition: background-color .15s ease-out .15s;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     border: 3px;
     border-style: solid;
     border-color: rgb(155, 177, 202);
@@ -71,7 +75,7 @@ a:hover {
 
 /* CAT CARD IMAGE ONLY */
 .indivCats {
-    width: 200px;
+    width: 80%;
     border: 2px;
     border-style: solid;
     border-color: rgb(155, 177, 202);
@@ -86,6 +90,7 @@ a:hover {
 }
 
 .Basket {
+    box-sizing: border-box;
     height: 1020px;
     width: 350px;
     overflow: scroll;
