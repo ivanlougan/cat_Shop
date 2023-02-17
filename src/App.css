@@ -114,3 +114,12 @@ button {
     border-color: rgb(155, 177, 202);
     border-radius: 5px;
 }
+
+.aboutPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 100px;
+    padding: 100px;
+}
