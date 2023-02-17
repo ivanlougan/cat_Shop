@@ -38,8 +38,6 @@ a:hover {
 
 /* =====HOME PAGE STYLING===== */
 .CatCardDisplay {
-    /* display: flex;
-    flex-wrap: wrap; */
     width: calc(100vw - 450px);
     display: grid;
     gap: 10px;
@@ -122,4 +120,16 @@ button {
     align-items: center;
     margin: 100px;
     padding: 100px;
+}
+
+/* ABOUT PAGE STYLING */
+
+.aboutPage {
+    background-color: rgb(255, 255, 255);
+    border: 3px;
+    border-style: solid;
+    border-color: rgb(155, 177, 202);
+    border-radius: 15px;
+    box-shadow: 0 0 15px 5px inset rgb(155, 177, 202);
+
 }
