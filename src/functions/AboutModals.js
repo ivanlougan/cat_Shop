@@ -52,7 +52,7 @@ const OpenAbout = () => {
     {Info.Address2} <br></br>
     {Info.Address3}
     </p>
-    <button> Add to Basket (null)</button>
+    {/* <button> Add to Basket (null)</button> */}
     <button onClick={CloseAbout}> Close</button>
   </Modal>
   </>

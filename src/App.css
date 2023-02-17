@@ -9,7 +9,6 @@
     padding-right: 100px;
     text-align: end;
     background-color: rgb(138, 169, 226);
-
     border: 0;
     border-bottom: 3px;
     border-style: solid;
@@ -51,10 +50,9 @@ a:hover {
 
 /* CAT CARDS */
 .CatCard {
-    width: fit-content;
-    height: fit-content;
-    margin: 40px;
-    padding: 40px;
+    width: calc(100% - fit-content);
+    height: calc(100% - fit-content);
+    padding: 20px;
     
     transition: background-color .15s ease-out .15s;
     background-color: white;
@@ -81,9 +79,33 @@ a:hover {
 
 }
 
-/* MODAL STYLING */
-/* BUTTON */
-#OpenMod {
+.MainContent {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.Basket {
+    height: 1020px;
+    width: 350px;
+    overflow: scroll;
+    background-color: rgb(138, 169, 226);
+    border: 3px;
+    border-bottom: 3px;
+    border-style: solid;
+    border-color: rgb(85, 118, 155);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0px 5px 5px inset rgb(85, 118, 155);
+
+}
+
+/* BUTTONS */
+button {
+    margin: 5px;
     width:fit-content;
-     
+    border: 2px;
+    border-style: solid;
+    border-color: rgb(155, 177, 202);
+    border-radius: 5px;
 }
