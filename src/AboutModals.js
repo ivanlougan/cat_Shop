@@ -3,12 +3,19 @@ import { useState } from "react";
 
 const customStyles = {
   content: {
+    backgroundColor: 'white',
+    border: '3px',
+    borderStyle: 'solid',
+    borderColor: 'rgb(155, 177, 202)',
+    borderRadius: '15px',
+    boxShadow: '0 0 15px 5px inset rgb(155, 177, 202)',
     top: '50%',
     left: '50%',
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
+    
   },
 };
 

@@ -81,14 +81,9 @@ a:hover {
 
 }
 
-.AllCats {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(3 minmax(300px));
-}
-
+/* MODAL STYLING */
+/* BUTTON */
 #OpenMod {
-    width:fit-content
+    width:fit-content;
+     
 }
-
-
