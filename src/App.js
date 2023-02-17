@@ -64,7 +64,7 @@ const App = () => {
         <Routes>
 
           <Route path="/" element={ <Home CatPics={CatPics} ErrorMsg={ErrorMsg} CatList={SetCatPics}/>}></Route>
-          <Route path="/about/"></Route>
+          <Route path="/about/" element={<About></About>} ></Route>
           <Route path="/basket/"></Route>        
 
         </Routes>

@@ -1,7 +1,7 @@
 /* NAVIGATION BAR */
 #navbar {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row;
     justify-content: space-between;
     align-items:center;
     font-size: 20px;
@@ -9,8 +9,6 @@
     padding-right: 100px;
     text-align: end;
     background-color: rgb(138, 169, 226);
-
-    max-width: 100%;
     border: 0;
     border-bottom: 3px;
     border-style: solid;
@@ -40,26 +38,26 @@ a:hover {
 
 /* =====HOME PAGE STYLING===== */
 .CatCardDisplay {
+    width: calc(100vw - 450px);
     display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    grid-template-columns: repeat(5, 20%);
 
 }
 
 .HomePageWrapper {
     text-align: center;
-    flex-wrap: wrap;
 }
 
 /* CAT CARDS */
 .CatCard {
-    width: fit-content;
-    height: fit-content;
-    margin: 40px;
-    padding: 40px;
+    box-sizing: border-box;
+    width: calc(100%);
+    height: calc(100% - fit-content);
+    padding: 20px;
     
     transition: background-color .15s ease-out .15s;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     border: 3px;
     border-style: solid;
     border-color: rgb(155, 177, 202);
@@ -75,7 +73,7 @@ a:hover {
 
 /* CAT CARD IMAGE ONLY */
 .indivCats {
-    width: 200px;
+    width: 80%;
     border: 2px;
     border-style: solid;
     border-color: rgb(155, 177, 202);
@@ -83,14 +81,55 @@ a:hover {
 
 }
 
-.AllCats {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(3 minmax(300px));
+.MainContent {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
 }
 
-#OpenMod {
-    width:fit-content
+.Basket {
+    box-sizing: border-box;
+    height: 1020px;
+    width: 350px;
+    overflow: scroll;
+    background-color: rgb(138, 169, 226);
+    border: 3px;
+    border-bottom: 3px;
+    border-style: solid;
+    border-color: rgb(85, 118, 155);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0px 5px 5px inset rgb(85, 118, 155);
+
 }
 
+/* BUTTONS */
+button {
+    margin: 5px;
+    width:fit-content;
+    border: 2px;
+    border-style: solid;
+    border-color: rgb(155, 177, 202);
+    border-radius: 5px;
+}
 
+.aboutPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 100px;
+    padding: 100px;
+}
+
+/* ABOUT PAGE STYLING */
+
+.aboutPage {
+    background-color: rgb(255, 255, 255);
+    border: 3px;
+    border-style: solid;
+    border-color: rgb(155, 177, 202);
+    border-radius: 15px;
+    box-shadow: 0 0 15px 5px inset rgb(155, 177, 202);
+
+}

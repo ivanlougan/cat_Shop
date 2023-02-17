@@ -37,9 +37,11 @@ const Home = ({CatPics, ErrorMsg, CatList, BaskTotal}) => {
     console.log(BasketCopy, storedCatPics)
 }
 
-    return (
-    <div className="HomePageWrapper">
-      <h1>CHECK OUT THESE CATS YO</h1>
+
+  return (
+  <div className="HomePageWrapper">
+      <h1>Purrruse these fine felines</h1>
+    <div className="MainContent">
         {ErrorMsg !== null && <h3>{ErrorMsg}</h3>}
       <div className="CatCardDisplay">
   
@@ -58,8 +60,8 @@ const Home = ({CatPics, ErrorMsg, CatList, BaskTotal}) => {
       </div>
   
       <div className='Basket'>
-        <h1>The Basket will go here?</h1>
-        
+        <h1>Cats in your basket!</h1>
+        <h3>Total: {} </h3>
         {Basket.map((CatPicData, index) =>{
           return (
             <div key={index} className='CatCard'>
@@ -77,6 +79,7 @@ const Home = ({CatPics, ErrorMsg, CatList, BaskTotal}) => {
       {/* Basket total section */}
       <h3>Total Cost: £{BasketTotal}</h3>
       <button>Proceed to Checkout</button>
+    </div>
    </div>
    )
   }
