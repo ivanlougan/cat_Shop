@@ -43,7 +43,7 @@ const OpenAbout = () => {
     <h2> Meow! I'm {Info.name}</h2>
     
     <p>Breed: {Info.breed}</p>
-    <p>Price: {Info.price}</p>
+    <p>Price: £{Info.price}</p>
     <p>Owner's Name: {Info.humanName}</p>
     <p>Contact: {Info.phone}</p>
     <p>Email: {Info.email}</p>
