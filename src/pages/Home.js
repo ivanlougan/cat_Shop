@@ -1,24 +1,68 @@
-import AboutModals from "../AboutModals"
-const Home = ({CatPics, ErrorMsg}) => {
-return (     
-    <>
-     <h1>Cats for Life Page header</h1>    
-     {ErrorMsg !== null && <h3>{ErrorMsg}</h3>}     
-     {CatPics.map((CatPicData, index) => {   
-      return (       
-      <div key={index} className='AllCats'>         
-        <img className='indivCats' src={CatPicData.catImg} alt="cat"></img>          
-        <p>{CatPicData.name}</p>
-        <p>{CatPicData.price}</p>
-        <AboutModals Info = {CatPicData}></AboutModals>       
-      </div>  
-     )
-    })}
-      <div className='Basket'>
-        <h1>The Basket will go here?</h1>
-      </div>
-    </>  
- )
+import { useState } from "react";
+import AboutModals from "../functions/AboutModals";
+
+const Home = ({CatPics, ErrorMsg, CatList}) => {
+  
+  const [Basket, setBasket] = useState([]);
+  
+  const handleAddCat = (index) =>{
+    let storedCatPics = [...CatPics];
+    let BasketCopy = [...Basket];
+    BasketCopy.push(storedCatPics.splice(index,1)[0]);
+    CatList(storedCatPics);
+    setBasket(BasketCopy);
+    console.log(BasketCopy, storedCatPics)
+}
+  const handleRemoveCat = (index) =>{
+    let storedCatPics = [...CatPics];
+    let BasketCopy = [...Basket];
+    storedCatPics.push(BasketCopy.splice(index,1)[0])
+    CatList(storedCatPics);
+    setBasket(BasketCopy)
+    console.log(BasketCopy, storedCatPics)
 }
 
-export default Home
+  return (
+    <div className="HomePageWrapper">
+      <h1>CHECK OUT THESE CATS YO</h1>
+        {ErrorMsg !== null && <h3>{ErrorMsg}</h3>}
+      <div className="CatCardDisplay">
+  
+        {CatPics.map((CatPicData, index) => {
+          return (
+          <div key={index} className='CatCard'> 
+            <img className='indivCats' src={CatPicData.catImg} alt="cat"></img>
+            <h4>{CatPicData.name}</h4>
+            <p><b>Breed: </b>{CatPicData.breed}</p>
+            <p>{CatPicData.price}</p>
+            <AboutModals Info = {CatPicData}></AboutModals>
+            <button onClick = {()=>handleAddCat(index)}>Add to Cat Basket</button>
+          </div>
+            )
+          })}
+      </div>
+  
+      <div className='Basket'>
+        <h1>The Basket will go here?</h1>
+        {Basket.map((CatPicData, index) =>{
+          return (
+            <div key={index} className='CatCard'> 
+            <img className='indivCats' src={CatPicData.catImg} alt="cat"></img>
+            <h4>{CatPicData.name}</h4>
+            <p><b>Breed: </b>{CatPicData.breed}</p>
+            <p>{CatPicData.price}</p>
+            <AboutModals Info = {CatPicData}></AboutModals>
+            <button onClick={()=>handleRemoveCat(index)}>Remove from basket</button>
+            </div>
+          )
+        })}
+      </div>
+  
+   </div>
+   )
+  }
+  
+  export default Home
+  
+  // Basket Counter will use State to update?
+  // Cat Card will be onclick event?
