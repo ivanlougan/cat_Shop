@@ -52,7 +52,7 @@ const App = () => {
  
   return (
     
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
 
         <nav id="navbar">
           <img id="catlogo" src={catLogo} alt="catlogo"></img>
