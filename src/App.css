@@ -53,7 +53,7 @@ a:hover {
 .CatCard {
     box-sizing: border-box;
     width: calc(100%);
-    height: calc(100% - fit-content);
+    /* height: calc(100% - fit-content); */
     padding: 20px;
     
     transition: background-color .15s ease-out .15s;
