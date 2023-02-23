@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { faker } from '@faker-js/faker';  
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Basket from "./pages/Basket";
+// import Basket from "./pages/Basket";
 import './App.css';
 
 
@@ -14,7 +14,7 @@ const App = () => {
   // CatPics state now holds both images from API & faker info
   const [CatPics, SetCatPics] = useState([]);   
   const [ErrorMsg, SetErrorMsg] = useState(null);
-  const [ModalOpen, setModalOpen] = useState(false);
+  // const [ModalOpen, setModalOpen] = useState(false);
   
   useEffect(() => {   
     const fetchCat = async () => {     
@@ -52,7 +52,7 @@ const App = () => {
  
   return (
     
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
 
         <nav id="navbar">
           <img id="catlogo" src={catLogo} alt="catlogo"></img>

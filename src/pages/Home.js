@@ -61,7 +61,8 @@ const Home = ({CatPics, ErrorMsg, CatList, BaskTotal}) => {
   
       <div className='Basket'>
         <h1>Cats in your basket!</h1>
-        <h3>Total: {} </h3>
+        <h3>Total: £{BasketTotal}</h3>
+        <button>Proceed to Checkout</button>
         {Basket.map((CatPicData, index) =>{
           return (
             <div key={index} className='CatCard'>
@@ -76,9 +77,6 @@ const Home = ({CatPics, ErrorMsg, CatList, BaskTotal}) => {
           
         })}
       </div>
-      {/* Basket total section */}
-      <h3>Total Cost: £{BasketTotal}</h3>
-      <button>Proceed to Checkout</button>
     </div>
    </div>
    )
